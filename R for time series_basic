@@ -1,0 +1,10 @@
+library(readxl)
+Margin_Data_Agri <- read_excel("C:/Users/kaila/Downloads/Margin Data - Agri.xlsx", 
+                                 +     sheet = "Bajra")
+View(Margin_Data_Agri)
+names(Margin_Data_Agri)[names(Margin_Data_Agri) == "Initial Margin%"] <- "Initial_Margin"
+#you would have to make a dataset manually or on R with each crop. Here the Margin_Data_Agri used only has the initial margins of Bajra.
+Margin_Data_Agri <- ts(Margin_Data_Agri$Initial_Margin)
+library(stats)
+require(graphics)
+ts.plot(Margin_Data_Agri, xlab = "initial Margins", ylab = "time")
