@@ -1,0 +1,16 @@
+#Import the necessary data.
+#Load the necessary packages required for the data analysis.
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(stringi)
+library(dplyr)
+library(tidyr)
+#Then use the ggplot to create the plot
+# First a line plot is created with the trend line.
+ggplot(data = Climate_related_Disasters_Frequency1, aes(x = Climate_related_Disasters_Frequency1$Year, y = Climate_related_Disasters_Frequency1$`Number of Storms`))+
+  geom_line(color = 'red')+geom_smooth(method = lm)
+#Then we create a scatterplot with the trend line.
+ggplot(data = Climate_related_Disasters_Frequency1, aes(x = Climate_related_Disasters_Frequency1$Year, y = Climate_related_Disasters_Frequency1$`Number of Storms`))+
+  geom_point()+geom_smooth(method = lm)
+#Note that the geom_smooth(method = lm) is the required command to add the trend line in the plot.
